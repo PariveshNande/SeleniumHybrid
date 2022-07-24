@@ -55,11 +55,5 @@ public class BaseClass {
         logger.info("webDriver-manager closed the browser");
     }
 
-    public void captureScreenShot(WebDriver driver, String name) throws IOException {
-        TakesScreenshot screenshot = (TakesScreenshot) driver;
-        File source = screenshot.getScreenshotAs(OutputType.FILE);
-        File target = new File("src/test-reports/screenshots/" + name + ".png");
-        FileUtils.copyFile(source, target);
-        System.out.println("screen-shot captured");
-    }
+
 }

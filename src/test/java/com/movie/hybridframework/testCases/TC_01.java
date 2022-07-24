@@ -12,14 +12,22 @@ import java.io.IOException;
 
 public class TC_01 extends BaseClass {
 
+    public static String releaseDetailsImdb = null;
+    public static String originDetailsImdb = null;
+    public static String releaseDetailsWiki = null;
+    public static String originDetailsWiki = null;
+
     @Test
-    public void IMDBTest() throws InterruptedException, IOException {
+    public void MovieTest() throws InterruptedException {
 
         ReadConfig readConfig = new ReadConfig();
 
         IMDBHomePage homePage = new IMDBHomePage(driver);
         IMDBResultpage resultPage = new IMDBResultpage(driver);
+        WikiHomePage homePageWiki = new WikiHomePage(driver);
+        WikiResultpage resultWiki = new WikiResultpage(driver);
 
+        //imdb
         driver.get(readConfig.getIMDBApplicationUrl());
         logger.info("opening base url: " + String.format("%s", readConfig.getIMDBApplicationUrl()));
         Thread.sleep(2000);
@@ -30,47 +38,29 @@ public class TC_01 extends BaseClass {
         homePage.selectMovie();
         logger.info("search operation performed successfully");
 
-        String releaseDetails = resultPage.getReleaseDetails();
-        String originDetails = resultPage.getOriginDetails();
+        releaseDetailsImdb = resultPage.getReleaseDetails();
+        originDetailsImdb = resultPage.getOriginDetails();
 
-        if (driver.getTitle().equalsIgnoreCase(readConfig.getPageTitleIMDB())) {
-            if ((releaseDetails.equals(readConfig.getReleaseDetails())) && (originDetails.equals(readConfig.getOrigin()))) {
-                Assert.assertTrue(true);
-                logger.info("IMDBTest passed");
-            }
-        } else {
-            captureScreenShot(driver, "IMDBTest");
-            Assert.assertTrue(false);
-            logger.error("IMDBTest failed");
-        }
-    }
-
-    @Test
-    public void WikiTest() throws InterruptedException, IOException {
-
-        ReadConfig readConfig = new ReadConfig();
-        WikiHomePage homePage = new WikiHomePage(driver);
-        WikiResultpage resultPage = new WikiResultpage(driver);
-
+        //wiki
         driver.get(readConfig.getWikiApplicationUrl());
         logger.info("opening base url: " + String.format("%s", readConfig.getWikiApplicationUrl()));
         Thread.sleep(2000);
-        homePage.setMovieName(readConfig.getMovieNameWiki());
-        homePage.performSearch();
+        homePageWiki.setMovieName(readConfig.getMovieNameWiki());
+        homePageWiki.performSearch();
         logger.info("search operation performed successfully");
         Thread.sleep(2000);
-        String releaseDetails = resultPage.getReleaseDetails();
-        String originDetails = resultPage.getOriginDetails();
+        releaseDetailsWiki = resultWiki.getReleaseDetails();
+        originDetailsWiki = resultWiki.getOriginDetails();
 
-        if (driver.getTitle().equalsIgnoreCase(readConfig.getPageTitleWiki())) {
-            if ((releaseDetails.equals(readConfig.getReleaseDetailsWiki())) && (originDetails.equals(readConfig.getOriginWiki()))) {
-                logger.info("WikiTest passed");
+
+        if (releaseDetailsImdb.equals(releaseDetailsWiki)) {
+            if (originDetailsImdb.equals(originDetailsWiki)) {
                 Assert.assertTrue(true);
+                logger.info("Test passed");
             }
         } else {
-            captureScreenShot(driver, "WikiTest");
-            logger.info("WikiTest failed");
             Assert.assertTrue(false);
+            logger.error("Test failed");
         }
     }
 }

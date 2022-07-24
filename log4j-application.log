@@ -356,4 +356,18 @@
  2022-07-24 19:34:16,717 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("commons/commons-inject-js_en.ftl"): Not found
  2022-07-24 19:34:16,719 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("commons/commons-inject-js.ftl"): Found
  2022-07-24 19:34:16,719 DEBUG [main] cache:45 - Loading template for "commons/commons-inject-js.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/parivesh/.m2/repository/com/aventstack/extentreports/5.0.9/extentreports-5.0.9.jar!/com/aventstack/extentreports/templates/commons/commons-inject-js.ftl"
+ 2022-07-24 19:45:20,539  INFO [main] eMovies:49 - webDriver-manager invoked the browser
+ 2022-07-24 19:45:32,775  INFO [main] eMovies:24 - opening base url: https://www.imdb.com/
+ 2022-07-24 19:46:12,019  INFO [main] eMovies:31 - search operation performed successfully
+ 2022-07-24 19:46:13,023  INFO [main] eMovies:39 - IMDBTest passed
+ 2022-07-24 19:46:20,176  INFO [main] eMovies:56 - opening base url: https://en.wikipedia.org/
+ 2022-07-24 19:46:25,690  INFO [main] eMovies:60 - search operation performed successfully
+ 2022-07-24 19:46:28,007  INFO [main] eMovies:67 - WikiTest passed
+ 2022-07-24 19:46:38,914  INFO [main] eMovies:55 - webDriver-manager closed the browser
+ 2022-07-24 19:59:00,993  INFO [main] eMovies:49 - webDriver-manager invoked the browser
+ 2022-07-24 19:59:13,020  INFO [main] eMovies:32 - opening base url: https://www.imdb.com/
+ 2022-07-24 19:59:46,586  INFO [main] eMovies:39 - search operation performed successfully
+ 2022-07-24 19:59:55,914  INFO [main] eMovies:46 - opening base url: https://en.wikipedia.org/
+ 2022-07-24 20:00:02,192  INFO [main] eMovies:50 - search operation performed successfully
+ 2022-07-24 20:00:06,451  INFO [main] eMovies:55 - webDriver-manager closed the browser
  
