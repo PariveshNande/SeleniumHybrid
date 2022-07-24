@@ -9,7 +9,8 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseClass {
 
-    public String baseUrl = "https://www.imdb.com/";
+    public String baseUrl = "https://en.wikipedia.org/";
+    //public String baseUrl = "https://www.imdb.com/";
     public static WebDriver driver;
 
     @BeforeClass
